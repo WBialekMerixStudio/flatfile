@@ -7,8 +7,8 @@ import { listener } from "./listeners/simple";
 export default function App() {
   const spaceProps: ISpace = {
     name: "Embedded Space",
-    publishableKey: "YOUR_PRIVATE_KEY",
-    environmentId: "YOUR_ENVIRONMENT_ID",
+    environmentId: 'us_env_oN8cgIlF',
+    publishableKey: 'pk_4a1b0e1acfc444a98326d60ff2668e74',
     workbook,
     listener,
     sidebarConfig: {
