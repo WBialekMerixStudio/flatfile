@@ -179,31 +179,10 @@ export const workbook: Pick<
           type: "string",
           label: field.label,
           description: field.description,
-          // constraints: field.validators?.map(validator => ({
-          //   type
-          // })) || [],
-          // validators: field.validators?.map(validator => ({
-          //   ...validator,
-          //   error: validator.error || '',
-          // })) || [],
+          constraints: field.validators?.map((validator) => ({
+            type: validator.validate,
+          })) as Flatfile.Constraint[],
       })),
-      // fields: [
-      //   {
-      //     key: "firstName",
-      //     type: "string",
-      //     label: "First Name",
-      //   },
-      //   {
-      //     key: "lastName",
-      //     type: "string",
-      //     label: "Last Name",
-      //   },
-      //   {
-      //     key: "email",
-      //     type: "string",
-      //     label: "Email",
-      //   },
-      // ],
     },
   ],
   actions: [

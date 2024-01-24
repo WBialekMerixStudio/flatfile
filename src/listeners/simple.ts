@@ -1,6 +1,6 @@
 import { FlatfileListener } from "@flatfile/listener";
 import api from "@flatfile/api";
-import { recordHook } from "@flatfile/plugin-record-hook";
+// import { recordHook } from "@flatfile/plugin-record-hook";
 
 /**
  * Example Listener
@@ -10,14 +10,28 @@ export const listener = FlatfileListener.create((listener) => {
     console.log(`Received event: ${event.topic}`);
   });
 
-  listener.use(
-    recordHook("contacts", (record) => {
-      const firstName = record.get("firstName");
-      console.log({ firstName });
-      record.set("lastName", "Rock");
-      return record;
-    })
-  );
+  // listener.use(
+  //   recordHook("contacts", (record) => {
+  //     const firstName = record.get("firstName");
+  //     console.log({ firstName });
+  //     record.set("lastName", "Rock");
+  //     return record;
+  //   })
+  // );
+
+  // listener.use(
+  //   recordHook("contacts", (record) => {
+  //     // Your logic to check if the 'external_id' is unique
+  //     // For example, querying your database to ensure uniqueness
+  //     const isUnique = /* your uniqueness check logic here */;
+  
+  //     if (!isUnique) {
+  //       record.addError("external_id", "This field must be unique. Muster text.");
+  //     }
+  
+  //     return record;
+  //   })
+  // );
 
   listener.filter({ job: "workbook:submitActionFg" }, (configure) => {
     configure.on("job:ready", async ({ context: { jobId } }) => {
